@@ -46,7 +46,7 @@
   name = "github.com/emicklei/go-restful"
   packages = [
     ".",
-    "log",
+    "log"
   ]
   pruneopts = "NT"
   revision = "6ac3b8eb89d325e5c750d77f344a6870464d03c3"
@@ -113,7 +113,7 @@
   name = "github.com/gogo/protobuf"
   packages = [
     "proto",
-    "sortkeys",
+    "sortkeys"
   ]
   pruneopts = "NT"
   revision = "ba06b47c162d49f2af050fb4c75bcbc86a159d5c"
@@ -143,7 +143,7 @@
     "ptypes",
     "ptypes/any",
     "ptypes/duration",
-    "ptypes/timestamp",
+    "ptypes/timestamp"
   ]
   pruneopts = "NT"
   revision = "b5d812f8a3706043e23a9cd5babf2e5423744d30"
@@ -179,7 +179,7 @@
   packages = [
     "OpenAPIv2",
     "compiler",
-    "extensions",
+    "extensions"
   ]
   pruneopts = "NT"
   revision = "7c663266750e7d82587642f65e60bc4083f1f84e"
@@ -191,7 +191,7 @@
   name = "github.com/gregjones/httpcache"
   packages = [
     ".",
-    "diskcache",
+    "diskcache"
   ]
   pruneopts = "NT"
   revision = "901d90724c7919163f472a9812253fb26761123d"
@@ -201,7 +201,7 @@
   name = "github.com/hashicorp/golang-lru"
   packages = [
     ".",
-    "simplelru",
+    "simplelru"
   ]
   pruneopts = "NT"
   revision = "7087cb70de9f7a8bc0a10c375cb0d2280a8edf9c"
@@ -230,7 +230,7 @@
   packages = [
     "buffer",
     "jlexer",
-    "jwriter",
+    "jwriter"
   ]
   pruneopts = "NT"
   revision = "1ea4449da9834f4d333f1cc461c374aea217d249"
@@ -268,6 +268,29 @@
   version = "1.0.1"
 
 [[projects]]
+  digest = "1:8bc8f43d2332d035857c92581df240f247c287629d5f60c751df609f9b6215c5"
+  name = "github.com/openshift/api"
+  packages = [
+    "image/docker10",
+    "image/dockerpre012",
+    "image/v1"
+  ]
+  pruneopts = "NT"
+  revision = "0d921e363e951d89f583292c60d013c318df64dc"
+  version = "v3.9.0"
+
+[[projects]]
+  digest = "1:3e8b0f8d2ed4b10f83a0719c1e8853bdb4bbce2ca365aba2843dc9487e4ab35c"
+  name = "github.com/openshift/client-go"
+  packages = [
+    "image/clientset/versioned/scheme",
+    "image/clientset/versioned/typed/image/v1"
+  ]
+  pruneopts = "NT"
+  revision = "1fa528d3be060e4c7178eb69e76d37cf7e699e3c"
+  version = "v3.9.0"
+
+[[projects]]
   branch = "master"
   digest = "1:012313f500c99d2da1ea43bc3f296920a21c9e6faddd7e9254793445c5db8620"
   name = "github.com/operator-framework/operator-sdk"
@@ -275,7 +298,7 @@
     "pkg/k8sutil",
     "pkg/leader",
     "pkg/ready",
-    "version",
+    "version"
   ]
   pruneopts = "NT"
   revision = "cf3aaf10d465d7c4877c1f665e2754f9342b70ee"
@@ -305,12 +328,20 @@
   version = "v3.0.0"
 
 [[projects]]
+  digest = "1:0028cb19b2e4c3112225cd871870f2d9cf49b9b4276531f03438a88e94be86fe"
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  pruneopts = "NT"
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
   digest = "1:e2fde2e6d46505f0d91d6d350410ca82f382870c90d6b05227302f45f78828a7"
   name = "github.com/prometheus/client_golang"
   packages = [
     "prometheus",
     "prometheus/internal",
-    "prometheus/promhttp",
+    "prometheus/promhttp"
   ]
   pruneopts = "NT"
   revision = "2641b987480bca71fb39738eb8c8b0d577cb1d76"
@@ -330,7 +361,7 @@
   packages = [
     "expfmt",
     "internal/bitbucket.org/ww/goautoneg",
-    "model",
+    "model"
   ]
   pruneopts = "NT"
   revision = "17f5ca1748182ddf24fc33a5a7caaaf790a52fcc"
@@ -341,7 +372,7 @@
   name = "github.com/prometheus/procfs"
   packages = [
     ".",
-    "internal/fs",
+    "internal/fs"
   ]
   pruneopts = "NT"
   revision = "833678b5bb319f2d20a475cb165c6cc59c2cc77c"
@@ -356,7 +387,7 @@
     "pkg/apis/ceph.rook.io/v1",
     "pkg/apis/rook.io",
     "pkg/apis/rook.io/v1alpha2",
-    "pkg/daemon/ceph/model",
+    "pkg/daemon/ceph/model"
   ]
   pruneopts = "NT"
   revision = "e6da8ab08fae51e1ba70698f428b1a3e02d92adb"
@@ -368,6 +399,25 @@
   pruneopts = "NT"
   revision = "298182f68c66c05229eb03ac171abe6e309ee79a"
   version = "v1.0.3"
+
+[[projects]]
+  digest = "1:60a46e2410edbf02b419f833372dd1d24d7aa1b916a990a7370e792fada1eadd"
+  name = "github.com/stretchr/objx"
+  packages = ["."]
+  pruneopts = "NT"
+  revision = "477a77ecc69700c7cdeb1fa9e129548e1c1c393c"
+  version = "v0.1.1"
+
+[[projects]]
+  digest = "1:b1eb7870c859801cf1b3d92ce7326dda6abb90e5ff4d6bcee3d0c54e8d6acfec"
+  name = "github.com/stretchr/testify"
+  packages = [
+    "assert",
+    "mock"
+  ]
+  pruneopts = "NT"
+  revision = "221dbe5ed46703ee255b1da0dec05086f5035f62"
+  version = "v1.4.0"
 
 [[projects]]
   digest = "1:cc9d86ec4e6e3bdf87e3a421273bfeed003cf8e21351c0302fe8b0eb7b10efe6"
@@ -394,7 +444,7 @@
     "internal/bufferpool",
     "internal/color",
     "internal/exit",
-    "zapcore",
+    "zapcore"
   ]
   pruneopts = "NT"
   revision = "27376062155ad36be76b0f12cf1572a221d3a48c"
@@ -418,7 +468,7 @@
     "http/httpguts",
     "http2",
     "http2/hpack",
-    "idna",
+    "idna"
   ]
   pruneopts = "NT"
   revision = "461777fb6f67e8cb9d70cda16573678d085a74cf"
@@ -432,7 +482,7 @@
     "google",
     "internal",
     "jws",
-    "jwt",
+    "jwt"
   ]
   pruneopts = "NT"
   revision = "0f29369cfe4552d0e4bcddc57cc75f4d7e672a33"
@@ -443,7 +493,7 @@
   name = "golang.org/x/sys"
   packages = [
     "unix",
-    "windows",
+    "windows"
   ]
   pruneopts = "NT"
   revision = "301114b31cced3624480dfb114ca1b495ec69aa5"
@@ -468,7 +518,7 @@
     "unicode/cldr",
     "unicode/norm",
     "unicode/rangetable",
-    "width",
+    "width"
   ]
   pruneopts = "NT"
   revision = "342b2e1fbaa52c93f31447ad2c6abc048c63e475"
@@ -498,7 +548,7 @@
     "internal/gopathwalk",
     "internal/imports",
     "internal/module",
-    "internal/semver",
+    "internal/semver"
   ]
   pruneopts = "NT"
   revision = "eacb66d2a7c3d6b93b39f7224e6bef6a44cbe70e"
@@ -516,7 +566,7 @@
     "internal/modules",
     "internal/remote_api",
     "internal/urlfetch",
-    "urlfetch",
+    "urlfetch"
   ]
   pruneopts = "NT"
   revision = "b2f4a3cf3c67576a2ee09e1fe62656a5086ce880"
@@ -573,7 +623,7 @@
     "settings/v1alpha1",
     "storage/v1",
     "storage/v1alpha1",
-    "storage/v1beta1",
+    "storage/v1beta1"
   ]
   pruneopts = "NT"
   revision = "b503174bad5991eb66f18247f52e41c3258f6348"
@@ -624,7 +674,7 @@
     "pkg/version",
     "pkg/watch",
     "third_party/forked/golang/json",
-    "third_party/forked/golang/reflect",
+    "third_party/forked/golang/reflect"
   ]
   pruneopts = "NT"
   revision = "eddba98df674a16931d2d4ba75edc3a389bf633a"
@@ -699,7 +749,7 @@
     "util/integer",
     "util/jsonpath",
     "util/retry",
-    "util/workqueue",
+    "util/workqueue"
   ]
   pruneopts = "NT"
   revision = "d082d5923d3cc0bfbb066ee5fbdea3d0ca79acf8"
@@ -731,7 +781,7 @@
     "cmd/lister-gen/generators",
     "cmd/openapi-gen",
     "cmd/openapi-gen/args",
-    "pkg/util",
+    "pkg/util"
   ]
   pruneopts = "T"
   revision = "3dcf91f64f638563e5106f21f50c31fa361c918d"
@@ -748,7 +798,7 @@
     "generator",
     "namer",
     "parser",
-    "types",
+    "types"
   ]
   pruneopts = "NT"
   revision = "e17681d19d3ac4837a019ece36c2a0ec31ffe985"
@@ -771,7 +821,7 @@
     "pkg/generators",
     "pkg/generators/rules",
     "pkg/util/proto",
-    "pkg/util/sets",
+    "pkg/util/sets"
   ]
   pruneopts = "NT"
   revision = "db7b694dc208eead64d38030265f702db593fcf2"
@@ -807,7 +857,7 @@
     "pkg/source/internal",
     "pkg/webhook/admission",
     "pkg/webhook/admission/types",
-    "pkg/webhook/types",
+    "pkg/webhook/types"
   ]
   pruneopts = "NT"
   revision = "c63ebda0bf4be5f0a8abd4003e4ea546032545ba"
@@ -819,20 +869,26 @@
   input-imports = [
     "github.com/go-logr/logr",
     "github.com/go-openapi/spec",
+    "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1",
     "github.com/operator-framework/operator-sdk/pkg/k8sutil",
     "github.com/operator-framework/operator-sdk/pkg/leader",
     "github.com/operator-framework/operator-sdk/pkg/ready",
     "github.com/operator-framework/operator-sdk/version",
     "github.com/rook/rook/pkg/apis/ceph.rook.io/v1",
     "github.com/rook/rook/pkg/apis/rook.io/v1alpha2",
+    "github.com/stretchr/testify/assert",
+    "github.com/stretchr/testify/mock",
     "k8s.io/api/core/v1",
     "k8s.io/api/storage/v1",
     "k8s.io/apimachinery/pkg/api/errors",
+    "k8s.io/apimachinery/pkg/api/meta",
     "k8s.io/apimachinery/pkg/apis/meta/v1",
     "k8s.io/apimachinery/pkg/runtime",
     "k8s.io/apimachinery/pkg/runtime/schema",
     "k8s.io/apimachinery/pkg/types",
     "k8s.io/client-go/plugin/pkg/client/auth/gcp",
+    "k8s.io/client-go/rest",
+    "k8s.io/client-go/tools/record",
     "k8s.io/code-generator/cmd/client-gen",
     "k8s.io/code-generator/cmd/conversion-gen",
     "k8s.io/code-generator/cmd/deepcopy-gen",
@@ -842,17 +898,20 @@
     "k8s.io/code-generator/cmd/openapi-gen",
     "k8s.io/gengo/args",
     "k8s.io/kube-openapi/pkg/common",
+    "sigs.k8s.io/controller-runtime/pkg/cache",
     "sigs.k8s.io/controller-runtime/pkg/client",
     "sigs.k8s.io/controller-runtime/pkg/client/config",
     "sigs.k8s.io/controller-runtime/pkg/controller",
     "sigs.k8s.io/controller-runtime/pkg/controller/controllerutil",
     "sigs.k8s.io/controller-runtime/pkg/handler",
     "sigs.k8s.io/controller-runtime/pkg/manager",
+    "sigs.k8s.io/controller-runtime/pkg/predicate",
     "sigs.k8s.io/controller-runtime/pkg/reconcile",
     "sigs.k8s.io/controller-runtime/pkg/runtime/log",
     "sigs.k8s.io/controller-runtime/pkg/runtime/scheme",
     "sigs.k8s.io/controller-runtime/pkg/runtime/signals",
     "sigs.k8s.io/controller-runtime/pkg/source",
+    "sigs.k8s.io/controller-runtime/pkg/webhook/admission/types"
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
