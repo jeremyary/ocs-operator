@@ -37,19 +37,8 @@ func InitNamespacedName() types.NamespacedName {
 	}
 }
 
-// Add creates a new OCSInitialization Controller and adds it to the Manager. The Manager will set fields on the Controller
-// and Start it when the Manager is Started.
-func Add(mgr manager.Manager) error {
-	return add(mgr, newReconciler(mgr))
-}
-
-// newReconciler returns a new reconcile.Reconciler
-func newReconciler(mgr manager.Manager) reconcile.Reconciler {
-	return &ReconcileOCSInitialization{client: mgr.GetClient(), scheme: mgr.GetScheme()}
-}
-
 // add adds a new Controller to mgr with r as the reconcile.Reconciler
-func add(mgr manager.Manager, r reconcile.Reconciler) error {
+func Add(mgr manager.Manager, r reconcile.Reconciler) error {
 	// set the watchNamespace so we know where to create the OCSInitialization resource
 	ns, err := k8sutil.GetWatchNamespace()
 	if err != nil {
@@ -67,21 +56,16 @@ func add(mgr manager.Manager, r reconcile.Reconciler) error {
 	return c.Watch(&source.Kind{Type: &ocsv1alpha1.OCSInitialization{}}, &handler.EnqueueRequestForObject{})
 }
 
-// blank assignment to verify that ReconcileOCSInitialization implements reconcile.Reconciler
-var _ reconcile.Reconciler = &ReconcileOCSInitialization{}
-
 // ReconcileOCSInitialization reconciles a OCSInitialization object
 type ReconcileOCSInitialization struct {
 	// This client, initialized using mgr.Client() above, is a split client
 	// that reads objects from the cache and writes to the apiserver
-	client client.Client
-	scheme *runtime.Scheme
+	Client client.Client
+	Scheme *runtime.Scheme
 }
 
 // Reconcile reads that state of the cluster for a OCSInitialization object and makes changes based on the state read
 // and what is in the OCSInitialization.Spec
-// TODO(user): Modify this Reconcile function to implement your Controller logic.  This example creates
-// a Pod as an example
 // Note:
 // The Controller will requeue the Request to be processed again if the returned error is non-nil or
 // Result.Requeue is true, otherwise upon completion it will remove the work from the queue.
@@ -94,7 +78,7 @@ func (r *ReconcileOCSInitialization) Reconcile(request reconcile.Request) (recon
 	if initNamespacedName.Name != request.Name || initNamespacedName.Namespace != request.Namespace {
 		// Ignoring this resource because it has the wrong name or namespace
 		reqLogger.Info(wrongNamespacedName)
-		err := r.client.Get(context.TODO(), request.NamespacedName, instance)
+		err := r.Client.Get(context.TODO(), request.NamespacedName, instance)
 		if err != nil {
 			// the resource probably got deleted
 			if errors.IsNotFound(err) {
@@ -104,7 +88,7 @@ func (r *ReconcileOCSInitialization) Reconcile(request reconcile.Request) (recon
 		}
 		instance.Status.ErrorMessage = wrongNamespacedName
 
-		err = r.client.Status().Update(context.TODO(), instance)
+		err = r.Client.Status().Update(context.TODO(), instance)
 		if err != nil {
 			reqLogger.Error(err, "failed to update ignored resource")
 		}
@@ -112,14 +96,14 @@ func (r *ReconcileOCSInitialization) Reconcile(request reconcile.Request) (recon
 	}
 
 	// Fetch the OCSInitialization instance
-	err := r.client.Get(context.TODO(), request.NamespacedName, instance)
+	err := r.Client.Get(context.TODO(), request.NamespacedName, instance)
 	if err != nil {
 		if errors.IsNotFound(err) {
 			// Request object not found, could have been deleted after reconcile request.
 			// Recreating since we depend on this to exist. A user may delete it to
 			// induce a reset of all initial data.
 			reqLogger.Info("recreating OCSInitialization resource")
-			return reconcile.Result{}, r.client.Create(context.TODO(), &ocsv1alpha1.OCSInitialization{
+			return reconcile.Result{}, r.Client.Create(context.TODO(), &ocsv1alpha1.OCSInitialization{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:      initNamespacedName.Name,
 					Namespace: initNamespacedName.Namespace,
@@ -142,7 +126,7 @@ func (r *ReconcileOCSInitialization) Reconcile(request reconcile.Request) (recon
 	}
 
 	instance.Status.StorageClassesCreated = true
-	err = r.client.Status().Update(context.TODO(), instance)
+	err = r.Client.Status().Update(context.TODO(), instance)
 
 	return reconcile.Result{}, err
 }
@@ -156,19 +140,19 @@ func (r *ReconcileOCSInitialization) ensureStorageClasses(initialdata *ocsv1alph
 	}
 	for _, sc := range scs {
 		existing := storagev1.StorageClass{}
-		err := r.client.Get(context.TODO(), types.NamespacedName{Name: sc.Name, Namespace: sc.Namespace}, &existing)
+		err := r.Client.Get(context.TODO(), types.NamespacedName{Name: sc.Name, Namespace: sc.Namespace}, &existing)
 
 		switch {
 		case err == nil:
 			reqLogger.Info(fmt.Sprintf("Restoring original StorageClass %s", sc.Name))
 			sc.DeepCopyInto(&existing)
-			err = r.client.Update(context.TODO(), &existing)
+			err = r.Client.Update(context.TODO(), &existing)
 			if err != nil {
 				return err
 			}
 		case errors.IsNotFound(err):
 			reqLogger.Info(fmt.Sprintf("Creating StorageClass %s", sc.Name))
-			err = r.client.Create(context.TODO(), &sc)
+			err = r.Client.Create(context.TODO(), &sc)
 			if err != nil {
 				return err
 			}
